@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jadwal Angkut - GreenBin</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="dash">
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Buka menu">
+
+  <aside class="sidebar">
+    <a href="index.html" class="logo"><span class="logo-ikon" aria-hidden="true">♻</span> GreenBin</a>
+    <ul class="menu">
+      <li><a href="../dashboard.html">Dashboard</a></li>
+      <li><a href="../tempat-sampah.html">Tempat Sampah</a></li>
+      <li><a href="../jadwal-angkut.html" class="aktif">Jadwal Angkut</a></li>
+    </ul>
+    <a href="login.html" class="btn btn-outline btn-kecil keluar">Keluar</a>
+  </aside>
+
+  <main class="konten">
+    <header class="topbar">
+      <div>
+        <h1>Jadwal Angkut</h1>
+        <p class="sapa">Atur jadwal pengangkutan sampah.</p>
+      </div>
+      <label for="menu-toggle" class="menu-tombol">Menu</label>
+    </header>
+
+    <!-- READ: daftar data -->
+    <section class="panel">
+      <div class="panel-kepala">
+        <h2>Daftar jadwal</h2>
+        <a href="#form-jadwal" class="btn btn-kecil">Tambah jadwal</a>
+      </div>
+      <div class="tabel-bungkus">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Lokasi</th><th>Tanggal</th><th>Petugas</th><th>Status</th><th>Aksi</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td><td>Kantin Utama</td><td>08-10-2026</td><td>Pak Budi</td>
+              <td><span class="badge waspada">Menunggu</span></td>
+              <td class="aksi"><a href="#form-jadwal" class="btn-edit">Edit</a><button type="button" class="btn-hapus">Hapus</button></td>
+            </tr>
+            <tr>
+              <td>2</td><td>Gedung Rektorat</td><td>09-10-2026</td><td>Pak Joko</td>
+              <td><span class="badge waspada">Menunggu</span></td>
+              <td class="aksi"><a href="#form-jadwal" class="btn-edit">Edit</a><button type="button" class="btn-hapus">Hapus</button></td>
+            </tr>
+            <tr>
+              <td>3</td><td>Taman Kampus</td><td>05-10-2026</td><td>Pak Budi</td>
+              <td><span class="badge">Selesai</span></td>
+              <td class="aksi"><a href="#form-jadwal" class="btn-edit">Edit</a><button type="button" class="btn-hapus">Hapus</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CREATE / UPDATE: form -->
+    <section class="panel" id="form-jadwal">
+      <div class="panel-kepala"><h2>Form jadwal angkut</h2></div>
+      <form action="#" method="post">
+        <div class="form-baris">
+          <div class="form-grup">
+            <label for="lokasi">Lokasi</label>
+            <select id="lokasi" name="lokasi" required>
+              <option value="">Pilih tempat sampah</option>
+              <option>Kantin Utama</option>
+              <option>Gedung Rektorat</option>
+              <option>Taman Kampus</option>
+              <option>Laboratorium Komputer</option>
+            </select>
+          </div>
+          <div class="form-grup">
+            <label for="tanggal">Tanggal angkut</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+          </div>
+          <div class="form-grup">
+            <label for="petugas">Petugas</label>
+            <input type="text" id="petugas" name="petugas" placeholder="Nama petugas" required>
+          </div>
+          <div class="form-grup">
+            <label for="status">Status</label>
+            <select id="status" name="status" required>
+              <option>Menunggu</option>
+              <option>Selesai</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-aksi">
+          <button type="submit" class="btn">Simpan</button>
+          <button type="reset" class="btn btn-outline">Batal</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

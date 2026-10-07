@@ -1,0 +1,148 @@
+/* ===== GreenBin - style umum: landing page, login, daftar ===== */
+:root {
+  --bg: #143020;
+  --card: #18231d;
+  --hijau: #1fa055;
+  --hijau-terang: #2bc76c;
+  --teks: #ffffff;
+  --redup: #c9d6ce;
+  --bahaya: #e5534b;
+  --kuning: #e6b83a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--teks);
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--kuning);
+  outline-offset: 2px;
+}
+
+.container { width: min(1200px, 90%); margin: 0 auto; }
+
+/* ----- Tombol ----- */
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 8px;
+  border: 1px solid var(--hijau);
+  background: var(--hijau);
+  color: var(--teks);
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover { background: var(--hijau-terang); }
+.btn-outline { background: transparent; color: var(--hijau); }
+.btn-outline:hover { background: rgba(31, 160, 85, 0.15); }
+.btn-kecil { padding: 8px 20px; font-size: 0.85rem; }
+
+/* ----- Navbar ----- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 56px 0 0;
+}
+.logo { display: flex; align-items: center; gap: 10px; font-size: 2.1rem; font-weight: 700; color: var(--hijau); }
+.logo-ikon { font-size: 2.3rem; line-height: 1; }
+.nav-aksi { display: flex; gap: 20px; }
+
+/* ----- Hero ----- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 90px 0 150px;
+}
+.hero h1 { font-size: clamp(2rem, 4.5vw, 2.9rem); line-height: 1.15; margin-bottom: 30px; }
+.hero p { max-width: 30rem; margin-bottom: 36px; }
+.hero-tombol { display: flex; gap: 52px; flex-wrap: wrap; }
+.hero-gambar { display: flex; justify-content: center; }
+.hero-gambar svg { width: min(210px, 50%); height: auto; fill: var(--hijau); }
+
+/* ----- Kartu fitur ----- */
+.fitur { display: grid; grid-template-columns: repeat(3, 1fr); gap: 104px; padding-bottom: 120px; }
+.fitur-kartu {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 24px 22px;
+  min-height: 178px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.fitur-ikon { font-size: 1.3rem; margin-bottom: 6px; }
+.fitur-kartu h3 { font-size: 1.2rem; }
+.fitur-kartu p { font-size: 0.95rem; }
+
+/* ----- Footer ----- */
+.footer {
+  text-align: center;
+  padding: 26px 0;
+  border-top: 1px solid rgba(31, 160, 85, 0.35);
+  color: var(--redup);
+  font-size: 0.85rem;
+}
+
+/* ----- Halaman Login & Daftar ----- */
+.auth {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 5%;
+  gap: 24px;
+}
+.auth .logo { font-size: 1.8rem; }
+.auth-kartu { width: min(420px, 100%); background: var(--card); border-radius: 16px; padding: 34px 30px; }
+.auth-kartu h1 { font-size: 1.6rem; margin-bottom: 4px; }
+.auth-kartu .sub { color: var(--redup); font-size: 0.9rem; margin-bottom: 22px; }
+.form-grup { margin-bottom: 16px; }
+.form-grup label { display: block; font-size: 0.85rem; color: var(--redup); margin-bottom: 6px; }
+.form-grup input, .form-grup select {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 8px;
+  border: 1px solid #2c4a39;
+  background: #0f2418;
+  color: var(--teks);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+.auth-kartu .btn { width: 100%; margin-top: 6px; }
+.auth-bawah { text-align: center; margin-top: 18px; font-size: 0.88rem; color: var(--redup); }
+.auth-bawah a { color: var(--hijau-terang); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1000px) {
+  .fitur { gap: 24px; }
+}
+
+@media (max-width: 768px) {
+  .navbar { padding-top: 28px; flex-wrap: wrap; gap: 16px; }
+  .logo { font-size: 1.7rem; }
+  .hero { grid-template-columns: 1fr; padding: 50px 0 70px; text-align: center; }
+  .hero p { margin-left: auto; margin-right: auto; }
+  .hero-tombol { justify-content: center; gap: 16px; }
+  .hero-gambar { order: -1; }
+  .hero-gambar svg { width: 140px; }
+  .fitur { grid-template-columns: 1fr; padding-bottom: 70px; }
+  .fitur-kartu { min-height: 140px; }
+}
+
+@media (max-width: 420px) {
+  .nav-aksi { gap: 10px; }
+  .btn { padding: 10px 18px; }
+  .hero-tombol .btn { width: 100%; text-align: center; }
+}

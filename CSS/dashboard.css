@@ -1,0 +1,118 @@
+/* ===== GreenBin - style dashboard (dipakai setelah style.css) ===== */
+
+body.dash { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+/* ----- Sidebar ----- */
+.sidebar {
+  background: var(--card);
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.sidebar .logo { font-size: 1.5rem; }
+.sidebar .logo-ikon { font-size: 1.6rem; }
+.menu { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.menu a {
+  display: block;
+  padding: 11px 14px;
+  border-radius: 8px;
+  color: var(--redup);
+  font-size: 0.95rem;
+}
+.menu a:hover { background: rgba(31, 160, 85, 0.15); color: var(--teks); }
+.menu a.aktif { background: var(--hijau); color: var(--teks); }
+.sidebar .keluar { margin-top: auto; }
+
+/* ----- Konten ----- */
+.konten { padding: 28px 36px 40px; min-width: 0; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 28px; }
+.topbar h1 { font-size: 1.6rem; }
+.topbar .sapa { color: var(--redup); font-size: 0.9rem; }
+.menu-tombol { display: none; }
+.menu-toggle { position: absolute; opacity: 0; pointer-events: none; }
+
+/* ----- Kartu ringkasan ----- */
+.ringkasan { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; margin-bottom: 28px; }
+.stat { background: var(--card); border-radius: 14px; padding: 20px; }
+.stat p { color: var(--redup); font-size: 0.85rem; }
+.stat strong { display: block; font-size: 1.9rem; margin-top: 4px; }
+
+/* ----- Panel & tabel ----- */
+.panel { background: var(--card); border-radius: 14px; padding: 22px; margin-bottom: 28px; }
+.panel-kepala { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.panel h2 { font-size: 1.15rem; }
+
+.tabel-bungkus { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 560px; }
+th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid #263a2f; }
+th { color: var(--redup); font-weight: 600; font-size: 0.82rem; }
+tr:last-child td { border-bottom: none; }
+
+.bar { background: #0f2418; border-radius: 20px; height: 8px; width: 110px; overflow: hidden; }
+.bar span { display: block; height: 100%; background: var(--hijau); }
+.bar span.penuh { background: var(--bahaya); }
+.bar span.sedang { background: var(--kuning); }
+
+.badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 0.78rem; background: rgba(31, 160, 85, 0.2); color: var(--hijau-terang); }
+.badge.waspada { background: rgba(230, 184, 58, 0.2); color: var(--kuning); }
+.badge.penuh { background: rgba(229, 83, 75, 0.2); color: #ff8a83; }
+
+.aksi { white-space: nowrap; }
+.aksi > * { margin-right: 8px; }
+.btn-edit, .btn-hapus {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+  background: transparent;
+}
+.btn-edit { border: 1px solid var(--hijau); color: var(--hijau-terang); }
+.btn-edit:hover { background: rgba(31, 160, 85, 0.15); }
+.btn-hapus { border: 1px solid var(--bahaya); color: #ff8a83; }
+.btn-hapus:hover { background: rgba(229, 83, 75, 0.15); }
+
+/* ----- Form di dashboard ----- */
+.form-baris { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+.form-baris .form-grup { margin-bottom: 0; }
+.form-aksi { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 860px) {
+  body.dash { grid-template-columns: 1fr; }
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 250px;
+    z-index: 20;
+    transform: translateX(-100%);
+    transition: transform 0.25s;
+  }
+  .menu-toggle:checked ~ .sidebar { transform: translateX(0); }
+  .menu-tombol {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid var(--hijau);
+    border-radius: 8px;
+    color: var(--hijau-terang);
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .menu-toggle:focus-visible ~ .konten .menu-tombol { outline: 3px solid var(--kuning); outline-offset: 2px; }
+  .konten { padding: 20px 5% 36px; }
+}
+
+@media (max-width: 480px) {
+  .topbar h1 { font-size: 1.3rem; }
+  .panel { padding: 16px; }
+  .form-aksi .btn { width: 100%; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar { transition: none; }
+}

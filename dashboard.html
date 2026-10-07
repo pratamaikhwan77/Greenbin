@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - GreenBin</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash">
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Buka menu">
+
+  <aside class="sidebar">
+    <a href="index.html" class="logo"><span class="logo-ikon" aria-hidden="true">♻</span> GreenBin</a>
+    <ul class="menu">
+      <li><a href="dashboard.html" class="aktif">Dashboard</a></li>
+      <li><a href="Tempat Sampah\tempatsampah.html">Tempat Sampah</a></li>
+      <li><a href="Jadwal Angkut\jadwalangkut.html">Jadwal Angkut</a></li>
+    </ul>
+    <a href="login.html" class="btn btn-outline btn-kecil keluar">Keluar</a>
+  </aside>
+
+  <main class="konten">
+    <header class="topbar">
+      <div>
+        <h1>Dashboard</h1>
+        <p class="sapa">Ringkasan kondisi tempat sampah hari ini.</p>
+      </div>
+      <label for="menu-toggle" class="menu-tombol">Menu</label>
+    </header>
+
+    <section class="ringkasan" aria-label="Ringkasan">
+      <div class="stat"><p>Total tempat sampah</p><strong>6</strong></div>
+      <div class="stat"><p>Hampir penuh</p><strong>2</strong></div>
+      <div class="stat"><p>Jadwal angkut minggu ini</p><strong>4</strong></div>
+      <div class="stat"><p>Rata-rata isi</p><strong>58%</strong></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-kepala">
+        <h2>Tempat sampah terbaru</h2>
+        <a href="tempat-sampah.html" class="btn btn-outline btn-kecil">Lihat semua</a>
+      </div>
+      <div class="tabel-bungkus">
+        <table>
+          <thead>
+            <tr><th>Lokasi</th><th>Jenis</th><th>Kapasitas</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Kantin Utama</td><td>Organik</td><td><div class="bar"><span class="penuh" style="width:92%"></span></div> 92%</td><td><span class="badge penuh">Penuh</span></td></tr>
+            <tr><td>Gedung Rektorat</td><td>Anorganik</td><td><div class="bar"><span class="sedang" style="width:71%"></span></div> 71%</td><td><span class="badge waspada">Waspada</span></td></tr>
+            <tr><td>Taman Kampus</td><td>Organik</td><td><div class="bar"><span style="width:35%"></span></div> 35%</td><td><span class="badge">Aman</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tempat Sampah - GreenBin</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="dash">
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Buka menu">
+
+  <aside class="sidebar">
+    <a href="index.html" class="logo"><span class="logo-ikon" aria-hidden="true">♻</span> GreenBin</a>
+    <ul class="menu">
+      <li><a href="../dashboard.html">Dashboard</a></li>
+      <li><a href="../tempat-sampah.html" class="aktif">Tempat Sampah</a></li>
+      <li><a href="../jadwal-angkut.html">Jadwal Angkut</a></li>
+    </ul>
+    <a href="login.html" class="btn btn-outline btn-kecil keluar">Keluar</a>
+  </aside>
+
+  <main class="konten">
+    <header class="topbar">
+      <div>
+        <h1>Tempat Sampah</h1>
+        <p class="sapa">Tambah, ubah, dan hapus data tempat sampah.</p>
+      </div>
+      <label for="menu-toggle" class="menu-tombol">Menu</label>
+    </header>
+
+    <!-- READ: daftar data -->
+    <section class="panel">
+      <div class="panel-kepala">
+        <h2>Daftar tempat sampah</h2>
+        <a href="#form-tempat" class="btn btn-kecil">Tambah data</a>
+      </div>
+      <div class="tabel-bungkus">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Lokasi</th><th>Jenis</th><th>Kapasitas</th><th>Status</th><th>Aksi</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td><td>Kantin Utama</td><td>Organik</td>
+              <td><div class="bar"><span class="penuh" style="width:92%"></span></div> 92%</td>
+              <td><span class="badge penuh">Penuh</span></td>
+              <td class="aksi"><a href="#form-tempat" class="btn-edit">Edit</a><button type="button" class="btn-hapus">Hapus</button></td>
+            </tr>
+            <tr>
+              <td>2</td><td>Gedung Rektorat</td><td>Anorganik</td>
+              <td><div class="bar"><span class="sedang" style="width:71%"></span></div> 71%</td>
+              <td><span class="badge waspada">Waspada</span></td>
+              <td class="aksi"><a href="#form-tempat" class="btn-edit">Edit</a><button type="button" class="btn-hapus">Hapus</button></td>
+            </tr>
+            <tr>
+              <td>3</td><td>Taman Kampus</td><td>Organik</td>
+              <td><div class="bar"><span style="width:35%"></span></div> 35%</td>
+              <td><span class="badge">Aman</span></td>
+              <td class="aksi"><a href="#form-tempat" class="btn-edit">Edit</a><button type="button" class="btn-hapus">Hapus</button></td>
+            </tr>
+            <tr>
+              <td>4</td><td>Laboratorium Komputer</td><td>B3 (elektronik)</td>
+              <td><div class="bar"><span style="width:20%"></span></div> 20%</td>
+              <td><span class="badge">Aman</span></td>
+              <td class="aksi"><a href="#form-tempat" class="btn-edit">Edit</a><button type="button" class="btn-hapus">Hapus</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CREATE / UPDATE: form -->
+    <section class="panel" id="form-tempat">
+      <div class="panel-kepala"><h2>Form tempat sampah</h2></div>
+      <form action="#" method="post">
+        <div class="form-baris">
+          <div class="form-grup">
+            <label for="lokasi">Lokasi</label>
+            <input type="text" id="lokasi" name="lokasi" placeholder="Contoh: Kantin Utama" required>
+          </div>
+          <div class="form-grup">
+            <label for="jenis">Jenis sampah</label>
+            <select id="jenis" name="jenis" required>
+              <option value="">Pilih jenis</option>
+              <option>Organik</option>
+              <option>Anorganik</option>
+              <option>B3 (elektronik)</option>
+            </select>
+          </div>
+          <div class="form-grup">
+            <label for="kapasitas">Kapasitas terisi (%)</label>
+            <input type="number" id="kapasitas" name="kapasitas" min="0" max="100" placeholder="0 - 100" required>
+          </div>
+        </div>
+        <div class="form-aksi">
+          <button type="submit" class="btn">Simpan</button>
+          <button type="reset" class="btn btn-outline">Batal</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
